@@ -4,10 +4,24 @@ block content
     h1= title
     p Welcome to #{title}
     .content(ng-controller= "todoController as todos")
-        div.panel.panel-default
-            div.panel-heading
-                | Todos
-            div.panel-body
-                div(ng-repeat="todo in todos.list")
-                    input(type = "checkbox")
-                    span {{todo.text}}
+        .row
+            .col-md-4
+            .col-md-4
+                .panel.panel-success
+                    .panel-heading Add a Todo
+                    .panel-body.text-center
+                        input.form-control(ng-model= "todos.newTodo.text", placeholder="this is a new todo")
+                        br
+                        button.btn.btn-info(ng-click = "todos.addTodo()")
+                            i.glyphicon.glyphicon-edit
+                            | &nbsp;Add new Todo
+        .row
+            .col-md-3
+            .col-md-6
+                .panel.panel-default
+                    .panel-heading
+                        | Todos
+                    .panel-body
+                        div(ng-repeat="todo in todos.list")
+                            input(type = "checkbox")
+                            span {{todo.text}}
