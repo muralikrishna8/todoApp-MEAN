@@ -1,7 +1,12 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= title
+        link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body(ng-app='TodoApp')
+        block content
+        script(src = '/lib/jquery/jquery.min.js')
+        script(src = '/lib/bootstrap/js/bootstrap.min.js')
+        script(src = '/lib/angular/angular.min.js')
+        script(src = '/javascripts/app.js')
