@@ -4,5 +4,10 @@ block content
     h1= title
     p Welcome to #{title}
     .content(ng-controller= "todoController as todos")
-        input(type = "checkbox")
-        span(ng-repeat="todo in todos.list") {{todo.text}}
+        div.panel.panel-default
+            div.panel-heading
+                | Todos
+            div.panel-body
+                div(ng-repeat="todo in todos.list")
+                    input(type = "checkbox")
+                    span {{todo.text}}
