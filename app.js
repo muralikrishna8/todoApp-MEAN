@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/');
 
 var routes = require('./routes/index');
+var todoApi = require('./routes/todoApi');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(require('node-compass')({mode: 'expanded'}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/api/todos', todoApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
