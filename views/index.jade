@@ -23,6 +23,7 @@ block content
                         | Todos
                     .panel-body.todo-list
                         div.todo(ng-repeat="todo in todos.list")
+                            span.todo-number {{$index + 1}})
+                            input(type="checkbox",ng-checked = "todo.done" ng-model="todo.done", ng-change="todos.changeStatus(todo)")
                             i.glyphicon.glyphicon-trash.delete(ng-click = "todos.removeTodo(todo._id)")
-                            | &nbsp;
-                            span {{todo.text}}
+                            span.todo-text(ng-class="{'todo-done': todo.done}") {{todo.text}}

@@ -40,4 +40,15 @@ app.controller("todoController", function ($http) {
     		})
     }
 
+    todos.changeStatus = function(todo) {
+    	$http.post('/api/todos', todo)
+    		.success(function (data, status) {
+    			if (status !== 200) {
+					todo.done != todo.done;
+    			}
+    		}).error(function (data, status) {
+				todo.done = !todo.done;
+    		});
+    }
+
 });

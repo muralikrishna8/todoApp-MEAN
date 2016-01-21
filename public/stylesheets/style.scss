@@ -15,6 +15,19 @@ a {
 	.delete {
 		cursor: pointer;
 		color: #EC5D5D;
+		padding-left: 5px;
+	}
+
+	.todo-number {
+		padding-right: 3px;
+	}
+
+	.todo-text {
+		padding-left: 5px;
+	}
+
+	.todo-done {
+		text-decoration: line-through;
 	}
 }
 

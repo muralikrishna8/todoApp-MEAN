@@ -34,4 +34,15 @@ router.delete("/:id", function(req, res){
 	});
 });
 
+router.post("/", function(req, res){
+	var todo = req.body;
+	Todo.update({_id: todo._id}, {$set: {done: todo.done}},
+		function(err, result){
+			if(err) {
+				res.send(err);
+			}
+			res.json({"message": "Todo Status Updated successfully"});
+		});
+});
+
 module.exports = router;
