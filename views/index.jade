@@ -21,7 +21,8 @@ block content
                 .panel.panel-default
                     .panel-heading
                         | Todos
-                    .panel-body
-                        div(ng-repeat="todo in todos.list")
-                            input(type = "checkbox")
+                    .panel-body.todo-list
+                        div.todo(ng-repeat="todo in todos.list")
+                            i.glyphicon.glyphicon-trash.delete(ng-click = "todos.removeTodo(todo._id)")
+                            | &nbsp;
                             span {{todo.text}}

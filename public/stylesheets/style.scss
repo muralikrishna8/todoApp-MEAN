@@ -8,3 +8,19 @@ body {
 a {
   color: #00B7FF;
 }
+
+.todo {
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+	.delete {
+		cursor: pointer;
+		color: #EC5D5D;
+	}
+}
+
+.todo-list {
+	.todo:last-child {
+		border-bottom: 0;
+		padding-bottom: 0;
+	}
+}

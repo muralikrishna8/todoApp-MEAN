@@ -14,8 +14,8 @@ app.controller("todoController", function ($http) {
             console.log(data);
         });
 
-    todos.addTodo = function () {
-        $http.post('/api/todos', todos.newTodo)
+    todos.addTodo = function() {
+        $http.put('/api/todos', todos.newTodo)
             .success(function (data, status) {
                 if (status === 200) {
                     todos.list.push({
@@ -28,4 +28,16 @@ app.controller("todoController", function ($http) {
                 console.log(data);
             });
     }
+
+    todos.removeTodo = function(todoId) {
+    	console.log(todoId);
+    	$http.delete('/api/todos/'+todoId)
+    		.success(function(data, status) {
+    			if (status === 200) {
+    				var removeIndex = todos.list.map(function(item){return item._id}).indexOf(todoId);
+    				todos.list.splice(removeIndex, 1)
+    			}
+    		})
+    }
+
 });
